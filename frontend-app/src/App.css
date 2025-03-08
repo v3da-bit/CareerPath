@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  border: none;
+  text-decoration: none;
+  outline: none;
+  list-style: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+body {
+  background-color: rgba(0, 26, 44, 0.92);;
+  color: #fff;
+  overflow-x: hidden;
+  font-family: "Poppins", serif;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.loaderBox{
+  width: 95vw;
+  margin: auto;
+}
+
+.loader{
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader img{
+  height: auto;
+  width: 100px;
+}
+
+header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 5px 15px -5px;
+}
+
+.logo {
+  font-size: 38px;
+  /* font-family: "Kaushan Script", cursive; */
+  padding-left: 7vmin;
+  font-weight:700;
+}
+
+.btns {
+  display: flex;
+  gap: 15px;
+  padding-right: 7vmin;
+  transition: all 0.3s ease;
+}
+
+.btn {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  box-shadow: 0 0 3px #fff;
+  cursor: pointer;
+  height: 45px;
+  padding: 10px 20px;
+  /* width: 150px; */
+  font-size: 18px;
+}
+
+.btn a{
+  /* color:#000; */
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, rgba(237,148,3,1) 0%, rgba(248,165,27,1) 50%, rgba(255,190,11,1) 100%);
+}
+
+#genBtn{
+  background: rgb(255,153,0);
+background: linear-gradient(90deg, rgba(237,148,3,1) 0%, rgba(248,165,27,1) 50%, rgba(255,190,11,1) 100%);
+/* color: #fff; */
+}
+
+#genBtn:hover{
+  background-color: #253b50;
+}
+
+.responsiveMenu {
+  display: none;
+  font-size: 30px;
+  padding-right: 7vmin;
+  cursor: pointer;
+}
+
+#cutMenu {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .logo {
+    font-size: 30px;
+  }
+
+  .responsiveMenu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btns {
+    display: none;
+  }
+
+  .btns.active {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0px;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #0c1821;
+    align-items: center;
+    justify-content: start;
+    padding-top: 30vh;
+    z-index: 999;
+    gap: 30px;
+    transition: opacity 0.3s ease;
+  }
+
+  .btn {
+    height: 60px;
+    width: 250px;
+    font-size: 22px;
+  }
+
+  #cutMenu {
+    display: block;
+  }
+}
