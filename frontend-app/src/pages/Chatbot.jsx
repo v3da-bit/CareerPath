@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import leftArrowIcon from '../../public/icons/left-arrow-svgrepo-com.svg';
+import { useNavigate } from "react-router-dom";
 const Chatbot = () => {
   const [userInput, setUserInput] = useState("");
   const [chatHistory, setChatHistory] = useState({});
   const [isChatActive, setIsChatActive] = useState(false);
+  let navigate = useNavigate();
 
   const handleInputChange = (event) => {
     setUserInput(event.target.value);
   };
-
+  const newChat = () => {
+    setIsChatActive(false);
+    setChatHistory({});
+    setUserInput("")
+  }
   const handleSendMessage = async () => {
     if (!userInput.trim()) return;
 
@@ -96,9 +102,9 @@ const Chatbot = () => {
       </div>
 
       <div className="absolute top-4 right-4">
-        <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+        <button onClick={() => navigate('/profile')} className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
           <i className="fas fa-user text-blue-900"></i>
-        </div>
+        </button>
       </div>
 
       {!isChatActive && (
@@ -121,7 +127,7 @@ const Chatbot = () => {
         </div>
       )}
 
-      <div className="fixed bottom-8 w-full px-4 max-w-3xl">
+      <div className="fixed bottom-8 w-full px-4 max-w-4xl">
         <div className="relative">
           <input
             type="text"
@@ -132,11 +138,19 @@ const Chatbot = () => {
           />
           <button
             onClick={handleSendMessage}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-2 text-white rounded-full hover:bg-blue-800 transition bg-blue-900"
+            className="absolute right-32 top-1/2 transform -translate-y-1/2 px-4 py-2 text-white rounded-full hover:bg-blue-800 transition bg-blue-900"
           >
             Send
           </button>
+          
         </div>
+        <button
+          onClick={newChat}
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 px-4 py-2 text-white rounded-full hover:bg-blue-800 transition bg-blue-900"
+        >
+          New Chat
+        </button>
+        
       </div>
     </div>
   );

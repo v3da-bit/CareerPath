@@ -1,7 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-
+  let navigate = useNavigate();
   return (
     <div className="w-full h-16 flex items-center justify-end px-2 sticky top-0 z-20 bg-[#001a2c]">
       <div className="lg:w-[30%] sm:w-[50%] h-[68%]">
@@ -19,6 +20,7 @@ const Navbar = () => {
           <i className="fa fa-globe text-[25px]"></i>
         </div>
         <div
+          onClick={()=>navigate('/profile')}
         className="w-10 h-10 bg-center"
       >
         <img
