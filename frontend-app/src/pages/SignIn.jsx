@@ -10,6 +10,22 @@ const SignIn = () => {
     email: "",
     password: "",
   });
+  const checkAdminInlocalStorage = () => {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const user = users.find(
+      (u) => u.email === formData.email && u.password === formData.password
+    );
+    if (!user) {
+      let adminUser = {
+        email: adminEmail,
+        password:adminPassword
+      }
+      let newUsers = [...users, adminUser]
+      localStorage.setItem("users", JSON.stringify(newUsers));
+    }
+  }
+  checkAdminInlocalStorage();
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [isAdmin,setIsAdmin]=useState(false);
@@ -22,8 +38,10 @@ const SignIn = () => {
   };
 
   const handleSubmit = (e) => {
+    localStorage.setItem("currentUser", JSON.stringify(formData));
     e.preventDefault();
     const users = JSON.parse(localStorage.getItem("users")) || [];
+    
     const user = users.find(
       (u) => u.email === formData.email && u.password === formData.password
     );

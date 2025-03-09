@@ -4,10 +4,11 @@ import Navbar from '../Components/common/Navbar';
 import Dashboard from '../Components/Home/Dashboard';
 
 const Home = () => {
+  let defaultInterests = [{ "tech": "js", "id": 1 }, { "tech": "css", "id": 2 }, { "tech": "html", "id": 3 }];
   const [step, setStep] = useState(1); // Step 1: Qualification, Step 2: Interests
   const [showPopup, setShowPopup] = useState(false); // Show popup
   const [qualification, setQualification] = useState('');
-  const [interests, setInterests] = useState((JSON.parse(localStorage.getItem("interests"))||[]).map(interest=>interest?.tech));
+  const [interests, setInterests] = useState((JSON.parse(localStorage.getItem("interests")) || [...defaultInterests]).map(interest=>interest?.tech));
   const [showSkip, setShowSkip] = useState(false); // Skip button control
 
   useEffect(() => {

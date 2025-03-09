@@ -5,7 +5,7 @@ function Admin() {
 
   const navigate = useNavigate();
   const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")));
-  const [interests, setInterests] = useState(JSON.parse(localStorage.getItem("interests")));
+  const [interests, setInterests] = useState(JSON.parse(localStorage.getItem("interests"))||[]);
   const [currentEditUser, setCurrentEditUser] = useState({});
   const [currentEditInterest, setCurrentEditInterest] = useState('');
   const [userModalVisibility, setUserModalVisibility] = useState("hidden");
