@@ -105,13 +105,22 @@ const SignUp = () => {
             <div className="flex-1 border-t border-gray-500"></div>
           </div>
           <div className="flex justify-center space-x-4 mt-4">
-            <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
+            <button onClick={(e) => {
+              e.preventDefault()
+              window.location.href = "https://x.com/?lang=en-in"
+            }} className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
               <i className="fab fa-twitter text-xl text-[#1DA1F2]"></i>
             </button>
-            <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
+            <button onClick={(e) => {
+              e.preventDefault()
+              window.location.href = "https://www.google.com/"
+            }} className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
               <i className="fab fa-google text-xl text-[#DB4437]"></i>
             </button>
-            <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
+            <button onClick={(e) => {
+              e.preventDefault()
+              window.location.href = "https://www.facebook.com/"
+            }} className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
               <i className="fab fa-facebook text-xl text-[#4267B2]"></i>
             </button>
           </div>

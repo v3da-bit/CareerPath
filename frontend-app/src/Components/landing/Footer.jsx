@@ -40,16 +40,16 @@ const Footer = () => {
         {/* Social Media and CTA Button */}
         <div className="footer-social">
           <div className="social-icons">
-            <a href="https://linkedin.com" rel="noopener noreferrer">
+            <a href="https://www.facebook.com/" rel="noopener noreferrer">
             <i class="fa-brands fa-square-facebook" style={{color: '#fff', fontSize:'30px'}} ></i>
             </a>
-            <a href="https://twitter.com" rel="noopener noreferrer">
+            <a href="https://www.google.com/" rel="noopener noreferrer">
             <i class="fa-brands fa-google" style={{color: '#fff', fontSize:'30px'}} ></i>
             </a>
-            <a href="https://facebook.com" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/" rel="noopener noreferrer">
             <i class="fa-brands fa-instagram" style={{color: '#fff', fontSize:'30px'}} ></i>
             </a>
-            <a href="https://facebook.com" rel="noopener noreferrer">
+            <a href="https://www.youtube.com/" rel="noopener noreferrer">
             <i class="fa-brands fa-youtube"  style={{color: '#fff', fontSize:'30px'}}></i>
             </a>
           </div>

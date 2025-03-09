@@ -3,8 +3,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const adminEmail="admin@gmail.com";
-const adminPassword="admin123";
+const adminEmail = "admin@gmail.com";
+const adminPassword = "admin123";
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -12,30 +12,30 @@ const SignIn = () => {
     password: "",
   });
   useEffect(() => {
-    
+
     const checkAdminInlocalStorage = () => {
       console.log("check amdmin");
-      
+
       const users = JSON.parse(localStorage.getItem("users")) || [];
-      
+
       const user = users.find(
         (u) => u.email === adminEmail && u.password === adminPassword
       );
       if (!user) {
         let adminUser = {
           email: adminEmail,
-          password:adminPassword
+          password: adminPassword
         }
         let newUsers = [...users, adminUser]
         localStorage.setItem("users", JSON.stringify(newUsers));
       }
     }
     checkAdminInlocalStorage();
-  },[])
+  }, [])
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  const [isAdmin,setIsAdmin]=useState(false);
-  
+  const [isAdmin, setIsAdmin] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -47,16 +47,16 @@ const SignIn = () => {
     localStorage.setItem("currentUser", JSON.stringify(formData));
     e.preventDefault();
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    
+
     const user = users.find(
       (u) => u.email === formData.email && u.password === formData.password
     );
 
     if (user) {
       localStorage.setItem("currentUser", JSON.stringify(user));
-      if(user?.email==adminEmail&&user?.password==adminPassword){
+      if (user?.email == adminEmail && user?.password == adminPassword) {
         navigate("/admin");
-      }else{
+      } else {
         navigate("/home");
       }
     } else {
@@ -117,13 +117,22 @@ const SignIn = () => {
             <div className="flex-1 border-t border-gray-500"></div>
           </div>
           <div className="flex justify-center space-x-4 mt-4">
-            <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
+            <button onClick={(e) => {
+              e.preventDefault()
+              window.location.href = "https://x.com/?lang=en-in"
+            }} className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
               <i className="fab fa-twitter text-xl text-[#1DA1F2]"></i>
             </button>
-            <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
+            <button onClick={(e) => {
+              e.preventDefault()
+              window.location.href = "https://www.google.com/"
+            }} className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
               <i className="fab fa-google text-xl text-[#DB4437]"></i>
             </button>
-            <button className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
+            <button onClick={(e) => {
+              e.preventDefault()
+              window.location.href = "https://www.facebook.com/"
+            }} className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition duration-200">
               <i className="fab fa-facebook text-xl text-[#4267B2]"></i>
             </button>
           </div>
