@@ -14,10 +14,12 @@ const SignIn = () => {
   useEffect(() => {
     
     const checkAdminInlocalStorage = () => {
+      console.log("check amdmin");
+      
       const users = JSON.parse(localStorage.getItem("users")) || [];
-  
+      
       const user = users.find(
-        (u) => u.email === formData.email && u.password === formData.password
+        (u) => u.email === adminEmail && u.password === adminPassword
       );
       if (!user) {
         let adminUser = {
