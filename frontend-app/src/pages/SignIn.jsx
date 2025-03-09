@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -10,22 +11,25 @@ const SignIn = () => {
     email: "",
     password: "",
   });
-  const checkAdminInlocalStorage = () => {
-    const users = JSON.parse(localStorage.getItem("users")) || [];
-
-    const user = users.find(
-      (u) => u.email === formData.email && u.password === formData.password
-    );
-    if (!user) {
-      let adminUser = {
-        email: adminEmail,
-        password:adminPassword
+  useEffect(() => {
+    
+    const checkAdminInlocalStorage = () => {
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+  
+      const user = users.find(
+        (u) => u.email === formData.email && u.password === formData.password
+      );
+      if (!user) {
+        let adminUser = {
+          email: adminEmail,
+          password:adminPassword
+        }
+        let newUsers = [...users, adminUser]
+        localStorage.setItem("users", JSON.stringify(newUsers));
       }
-      let newUsers = [...users, adminUser]
-      localStorage.setItem("users", JSON.stringify(newUsers));
     }
-  }
-  checkAdminInlocalStorage();
+    checkAdminInlocalStorage();
+  },[])
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const [isAdmin,setIsAdmin]=useState(false);
